@@ -4,8 +4,6 @@ networks:
   fpm_net:
   nginx_net:
     external: true
-volumes:
-  postgres_data:
 
 services:
   php-fpm:

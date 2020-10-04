@@ -1,0 +1,37 @@
+version: "3.1"
+
+networks:
+  fpm_net:
+  nginx_net:
+    external: true
+volumes:
+  postgres_data:
+
+services:
+  php-fpm:
+    build: phpdocker/php-fpm
+    container_name: unihome_php-fpm
+    working_dir: /usr/src/app/
+    volumes:
+      - ./src:/usr/src/app/
+      - ./vendor:/usr/src/vendor
+      - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+    networks:
+      - fpm_net
+    restart: always
+
+  unihome-nginx:
+    image: nginx:alpine
+    container_name: unihome_nginx
+    working_dir: /usr/src/app/
+    volumes:
+      - ./src:/usr/src/app/
+      - ./static:/usr/src/app/static/:ro
+      - ./phpdocker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./phpdocker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php-fpm
+    networks:
+      - fpm_net
+      - nginx_net
+    restart: always

@@ -1,0 +1,39 @@
+@charset "utf-8"
+
+@import "bulma/sass/utilities/all.sass"
+@import "bulma/sass/base/all"
+@import "bulma/sass/elements/container"
+@import "bulma/sass/helpers/typography"
+@import "bulma/sass/helpers/color"
+@import "bulma/sass/helpers/visibility"
+@import "bulma/sass/elements/title"
+@import "bulma/sass/helpers/spacing"
+@import "bulma/sass/grid/all"
+@import "bulma/sass/elements/content"
+@import "bulma/sass/components/card"
+
+@font-face
+  font-family: "Source Code Pro"
+  src: local("Source Code Pro")
+  src: url("/static/font/SourceCodePro-Medium.ttf") format("truetype")
+
+.font-scp
+  font-family: "Source Code Pro", monospace
+
+.tagline
+  color: gray !important
+  font-size: 50% !important
+  font-family: "Source Code Pro", monospace
+
+.section
+  padding: 0 1rem
+
+.content
+  ul
+    margin-top: 0
+    margin-left: 1rem
+
+.card ul
+  margin-top: .5rem
+  li
+    margin-bottom: -3px

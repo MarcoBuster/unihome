@@ -1,0 +1,6 @@
+[submodule "static/sass/bulma"]
+	path = static/sass/bulma
+	url = https://github.com/jgthms/bulma.git
+[submodule "src/static/bulma"]
+	path = src/static/bulma
+	url = https://github.com/jgthms/bulma/
